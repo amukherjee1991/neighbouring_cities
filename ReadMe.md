@@ -26,8 +26,10 @@ This project provides a FastAPI-based web service to list major cities (with a p
     ```
 
 4. **Access the API**:
+    - Major cities by state: `http://127.0.0.1:8000/{state}`
     - Major cities: `http://127.0.0.1:8000/major_cities`
     - Specific city details: `http://127.0.0.1:8000/city/{main_city}`
+
 
 ## Files
 

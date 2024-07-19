@@ -33,6 +33,15 @@ def get_major_cities():
     major_cities = main_cities_df['city'].tolist()
     return major_cities
 
+@app.get("/major_cities/{state}", response_model=List[str])
+def get_major_cities_by_state(state: str):
+    state_cities_df = main_cities_df[main_cities_df['state_name'].str.lower() == state.lower()]
+    if not state_cities_df.empty:
+        major_cities_by_state = state_cities_df['city'].tolist()
+        return major_cities_by_state
+    else:
+        raise HTTPException(status_code=404, detail="State not found or no major cities in this state")
+
 @app.get("/city/{main_city}", response_model=Dict[str, Any])
 def get_city(main_city: str):
     city_row = main_cities_df[main_cities_df['city'].str.lower() == main_city.lower()]

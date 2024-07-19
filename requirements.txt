@@ -1,0 +1,6 @@
+fastapi
+pandas
+requests
+uvicorn
+anytree
+tqdm
